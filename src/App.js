@@ -38,6 +38,7 @@ function App() {
 
   return (
     <React.Fragment>
+      <p className={'made'}>Made with 💜 by Angela Zafirovska</p>
       {(gameStatus === "start" || gameStatus === "ended") && (
         <Actions
           gameStatus={gameStatus}
@@ -58,6 +59,7 @@ function App() {
           setCounterHit={setCounterHit}
         />
       )}
+
     </React.Fragment>
   );
 }
