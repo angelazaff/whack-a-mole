@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Palanquin+Dark:wght@700&display=swap');
+body, html{
+  margin: 0;
+  padding: 0;
+  cursor: none;
+}
+
+> * {
+  box-sizing: border-box;
+  @media(min-width: 1024px){
+    cursor: none;
+
+  }
+}
+
+html{
+  background: linear-gradient(180deg, #1C1244 0%, #1747f7 100%);
+  width: 100vw;
+  //height: 100vw;
+  overflow: hidden;
+}
+
+body{
+  height: 100vh;
+}
+
+
+#cursor{
+  @media (min-width: 1024px) {
+    width: 100px;
+    height: 100px;
+    z-index: 1000;
+    background: url("assets/cursor.svg");
+    background-size: contain;
+    position: absolute;
+    pointer-events: none;
+  }
+}
+

@@ -1,0 +1,70 @@
+.mountains-wrapper{
+  width: 110vw;
+  z-index: -1;
+  left: -60px;
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  svg{
+    width: 120vw;
+    height: auto;
+    position: absolute;
+    bottom: 0;
+    &:first-child{
+      z-index: 0;
+      opacity: .3;
+      transform: scaleX(-1);
+    }
+    &:last-child{
+      bottom: -20px;
+      animation: mountains-move 5s infinite;
+    }
+  }
+  @media(min-width: 1500px){
+    svg{
+      bottom: -150px;
+      &:first-child{
+        bottom: -180px;
+      }
+    }
+  }
+  @media(max-width: 1030px){
+    svg{
+      width: 250vw;
+      bottom: 250px;
+      &:first-child{
+        bottom: 230px;
+      }
+    }
+  }
+  @media(max-width: 700px){
+    svg{
+      width: 260vw;
+      bottom: 0;
+      &:first-child{
+        bottom: 30px;
+      }
+    }
+  }
+
+  @media(max-width: 700px){
+    svg{
+      width: 260vw;
+      &:first-child{
+        bottom: 22vh;
+      }
+      &:last-child{
+        bottom: 20vh;
+      }
+    }
+  }
+}
+
+@keyframes mountains-move {
+  0%, 100%{
+    transform: rotate(5deg);
+  }
+  50%{
+    transform: rotate(0);
+  }
+}
