@@ -28,12 +28,12 @@ function App() {
       let cursor = document.getElementById("cursor");
       cursor.style.transform = "rotate(0)";
     }
-    // if (gameStatus === "started") {
-    //   timer = setTimeout(() => {
-    //     setGameStatus("ended");
-    //   }, 15000);
-    //   return () => clearTimeout(timer);
-    // }
+    if (gameStatus === "started") {
+      timer = setTimeout(() => {
+        setGameStatus("ended");
+      }, 15000);
+      return () => clearTimeout(timer);
+    }
   }, [gameStatus]);
 
   return (

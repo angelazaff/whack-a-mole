@@ -1,0 +1,144 @@
+.mole{
+  width: 110px;
+  height: 160px;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
+  background: linear-gradient(180deg, #51c3ff 0%, #1f90cc 100%);
+  display: flex;
+  align-items: center;
+  margin: 24px;
+  position: relative;
+  svg{
+    width: 18px;
+    padding: 4px;
+    height: auto;
+  }
+  &-face-wrapper{
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  &-mouth{
+    position: relative;
+    width: 50px;
+    height: 40px;
+    border-radius: 100px;
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+    &:after{
+      content: '';
+      position: absolute;
+      top: 5px;
+      left: 50%;
+      width: 7px;
+      height: 5px;
+      border-radius: 100%;
+      background: #1D2471;
+      transform: translateX(-50%);
+    }
+  }
+  &-hands{
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 4px;
+  }
+  &-hand{
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    position: relative;
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.51) 100%);
+    &:before, &:after{
+      content: '';
+      width: 10px;
+      height: 10px;
+      border-radius: 100%;
+      background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.51) 100%);
+      position: absolute;
+      top: 10px;
+    }
+    &:before{
+      left: -12px;
+    }
+    &:after{
+      right: -12px;
+    }
+  }
+  &-eyes{
+    transition: .5s;
+  }
+}
+
+.hit{
+  pointer-events: none;
+  .mole-eyes{
+    transform: scaleY(-1);
+  }
+  .reaction{
+    position: absolute;
+    width: 140%;
+    top: -50px;
+    left: -30px;
+    path, rect{
+      transform-box: fill-box;
+      transform-origin: center;
+      @for $i from 1 through 20 {
+        &:nth-child(#{$i}) {
+          animation-name: hit;
+          animation-duration: .3s;
+          animation-iteration-count: infinite;
+          animation-delay: #{$i/5}s ;
+        }
+
+      }
+    }
+  }
+
+}
+
+@media(max-width: 700px) {
+  .mole{
+    width: 70px;
+    height: 110px;
+    svg{
+      width: 10px;
+    }
+    &-mouth{
+      width: 30px;
+      height: 20px;
+    }
+    &-hand{
+      width: 6px;
+      height: 6px;
+      &:before, &:after{
+        top: 6px;
+        width: 6px;
+        height: 6px;
+      }
+      &:before{
+        left: -6px;
+      }
+      &:after{
+        right: -6px;
+      }
+    }
+  }
+  .hit .reaction{
+    left: -22px;
+    top: -20px;
+  }
+
+}
+
+@keyframes hit {
+  from{
+    transform: scale(0);
+  }
+  to{
+    transform: scale(1);
+  }
+}
