@@ -14,4 +14,8 @@ Installs all the dependencies for the project
 
 Launches the application
 
+------------------------------
+
+Sound effects obtained from https://www.zapsplat.com
+
 ## Angela Zafirovska
