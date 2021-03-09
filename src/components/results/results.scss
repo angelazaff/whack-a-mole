@@ -18,9 +18,13 @@
   }
   &-end{
     margin: 0;
+    span{
+      font-size: 20px;
+    }
     p{
       margin-top: 0;
-      line-height: 0;
+      line-height: 1.2;
+      text-align: center;
       margin-bottom: 48px;
       font-size: 40px;
     }
