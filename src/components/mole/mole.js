@@ -1,10 +1,19 @@
 import React, { useState } from "react";
 import "./mole.scss";
+import sound1 from '../../assets/sound1.mp3'
+import sound2 from '../../assets/sound2.mp3'
+import sound3 from '../../assets/sound3.mp3'
+import sound4 from '../../assets/sound4.mp3'
+
 
 function Mole(props) {
   const [isHit, setIsHit] = useState(false);
   const { setCounterHit, counterHit } = props;
+  let sounds = [sound1, sound2, sound3, sound4];
+  let randomSound = sounds[Math.floor(Math.random() * 4)];
+
   let whacked = function () {
+
     setIsHit(true);
     setTimeout(() => {
       setIsHit(false);
@@ -12,8 +21,15 @@ function Mole(props) {
     let counterNew = counterHit + 1;
     setCounterHit(counterNew);
   };
+
   return (
     <div className={"mole" + (isHit ? " hit" : "")} onClick={whacked}>
+
+      { isHit &&
+      <audio className="audio-element" autoPlay={true}>
+        <source src={randomSound}/>
+      </audio>
+      }
       {isHit && (
         <svg
           className={"reaction"}
