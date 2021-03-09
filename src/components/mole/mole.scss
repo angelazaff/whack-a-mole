@@ -74,6 +74,7 @@
 }
 
 .hit{
+  pointer-events: none;
   .mole-eyes{
     transform: scaleY(-1);
   }
